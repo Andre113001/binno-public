@@ -11,7 +11,7 @@ function LandingPage() {
   return (
     <>
       {/*Main Landing Page*/}
-      <div className="flex flex-col w-full bg-discoverWhite">
+      <div className="flex flex-col overflow-x-hidden w-full bg-discoverWhite">
         <CarouselCustomNavigation/>
         <DiscoverPage />
         <TeamPage />

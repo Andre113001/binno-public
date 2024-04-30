@@ -11,13 +11,15 @@ function MemberContent() {
       <div className="flex flex-col">
         {/* blog container */}
         <div className="flex flex-col mx-10">
-          <h1 className="text-black font-bold text-5xl">Blog</h1>
-          <a
-            className="flex mx-5 justify-end text-xl text-CustomOrange font-bold "
-            href="https://www.facebook.com"
-          >
-            View All
-          </a>
+          <h1 className="text-companyBG font-bold text-5xl">Blog</h1>
+          <div className="flex justify-end w-full">
+            <a
+              className=" mx-5 justify-end text-xl text-CustomOrange font-bold "
+              href="https://www.facebook.com"
+            >
+              View All
+            </a>
+          </div>
           {/* blog card container */}
           <div className="flex flex-row m-10 ">
             <BlogsContent />
@@ -25,13 +27,16 @@ function MemberContent() {
         </div>
         {/* event container */}
         <div className="flex flex-col mx-10">
-          <h1 className="text-black font-bold text-5xl">Events</h1>
-          <a
-            className="flex mx-5 justify-end text-xl text-CustomOrange font-bold "
-            href="https://www.facebook.com"
-          >
-            View All
-          </a>
+          <h1 className="text-companyBG font-bold text-5xl">Events</h1>
+          <div className="flex justify-end w-full">
+            <a
+              className=" mx-5 justify-end text-xl text-CustomOrange font-bold "
+              href="https://www.facebook.com"
+            >
+              View All
+            </a>
+          </div>
+
           {/* event card container */}
           <div className="flex flex-row m-10">
             <EventsContent />
@@ -39,13 +44,15 @@ function MemberContent() {
         </div>
         {/* Guides */}
         <div className="flex flex-col mx-10">
-          <h1 className="text-black font-bold text-5xl">Guides</h1>
-          <a
-            className="flex mx-5 justify-end text-xl text-CustomOrange font-bold "
-            href="https://www.facebook.com"
-          >
-            View All
-          </a>
+          <h1 className="text-companyBG font-bold text-5xl">Guides</h1>
+          <div className="flex justify-end w-full">
+            <a
+              className="mx-5 justify-end text-xl text-CustomOrange font-bold "
+              href="https://www.facebook.com"
+            >
+              View All
+            </a>
+          </div>
           {/* guide card container */}
           <div className="flex flex-row m-10 ">
             <GuidesContent />

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { SubscriptionPopover } from './Faq_Popover';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { SubscriptionPopover } from "./Faq_Popover";
 
 function AccordionItem({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ function AccordionItem({ title, content }) {
         <span>{title}</span>
         <svg
           className={`fill-current text-orange-700 h-6 w-6 transform transition-transform duration-500 ${
-            isOpen ? 'rotate-180' : ''
+            isOpen ? "rotate-180" : ""
           }`}
           viewBox="0 0 20 20"
         >
@@ -27,7 +27,9 @@ function AccordionItem({ title, content }) {
       </h3>
       <div
         className={`border-l-2 rounded-bl-lg border-orange-600 overflow-hidden transition-all ${
-          isOpen ? `max-h-96 duration-500 ease-in` : `max-h-0 duration-500 ease-out`
+          isOpen
+            ? `max-h-96 duration-500 ease-in`
+            : `max-h-0 duration-500 ease-out`
         }`}
       >
         <p className="p-3 text-gray-900 flex">{content}</p>
@@ -46,29 +48,42 @@ function Accordion() {
 
   const fetchFAQs = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_DOMAIN}/faq/fetch`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_DOMAIN}/faq/fetch`
+      );
       setQuestions(response.data);
       setFilteredQuestions(response.data);
     } catch (error) {
-      console.error('Error fetching FAQ data:', error);
+      console.error("Error fetching FAQ data:", error);
     }
   };
 
   const filterQuestions = (searchText) => {
-    const filtered = questions.filter(question =>
+    const filtered = questions.filter((question) =>
       question.question.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredQuestions(filtered);
   };
 
   return (
-    <main className="p-5 bg-light-blue h-dvh w-dvw">
+    <main className="p-5 bg-light-blue w-dvw">
       <form>
-        <div className='max-w-md mx-auto sm:w-1/4'>
-          <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg border border-slate-500 overflow-hidden h-9">
+        <div className="max-w-md mx-auto sm:w-1/4">
+          <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg border border-slate-500 overflow-hidden ">
             <div className="grid place-items-center h-full w-12 text-gray-300 bg-white">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
             </div>
             <input
@@ -82,7 +97,7 @@ function Accordion() {
         </div>
       </form>
       <div className="flex justify-center items-start my-2">
-       <div class="w-full sm:w-2/4 my-1">
+        <div class="w-full sm:w-2/4 my-1">
           <ul className="flex flex-col">
             {filteredQuestions.map((faq, index) => (
               <AccordionItem
@@ -94,8 +109,8 @@ function Accordion() {
           </ul>
         </div>
       </div>
-      
-  <SubscriptionPopover></SubscriptionPopover>
+
+      <SubscriptionPopover></SubscriptionPopover>
     </main>
   );
 }

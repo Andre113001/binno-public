@@ -3,7 +3,7 @@ import CarouselTeam from "../../pages/Company Page/Carousel_Swiper_Team";
 
 function TeamPage() {
   return (
-    <div className="flex h-screen w-screen relative">
+    <div className="flex h-screen w-screen relative ">
       <div className="w-6/12 h-full bg-discoverwhite"></div>
       <div className="w-6/12 h-full bg-companyBG"></div>
       <div className="absolute flex flex-col w-full p-24 pt-0">
@@ -12,7 +12,7 @@ function TeamPage() {
           Meet the Team
         </h1>
       </div>
-      <div className="relative left-0 w-full h-96 flex items-center">
+      <div className="mt-20 relative left-0 bottom-0 w-full h-96 flex items-end">
         <CarouselTeam />
       </div>
       </div>

@@ -18,23 +18,25 @@ function Footer() {
   return (
     <>
       {/* footer container */}
-      <div className="flex flex-col items-center h-auto w-full py-5 px-10">
-        <div className="flex h-60 w-full">
+      <div className="flex flex-col items-center h-auto w-full   py-2 px-4">
+        <div className="flex h-52 w-full">
           {/* contact details */}
           <div className="flex flex-col items-center justify-center border-r-2 border-customBorder p-5">
             <div className="flex flex-col items-start">
               <img className="object-cover h-20 w-auto" src={icon} alt="" />
               <h2 className="text-black m-2">
-                <EmailRoundedIcon sx={{ color: "#599EF3" }} />ㅤ
-                startwithbinno@email.com
+                <EmailRoundedIcon sx={{ color: "#599EF3" }} />
+                <span className="ml-3">startwithbinno@email.com</span>
               </h2>
               <h2 className="text-black m-2">
-                <LocalPhoneRoundedIcon sx={{ color: "#599EF3" }} />ㅤ +63 924
-                231 5821
+                <LocalPhoneRoundedIcon sx={{ color: "#599EF3" }} />
+                <span className="ml-2">+63 924 231 5821</span>
               </h2>
               <h2 className="text-black m-2">
                 <LocationOnRoundedIcon sx={{ color: "#599EF3" }} />
-                ㅤBicol University Main, Student Union Center Bldg.
+                <span className="ml-2">
+                  Bicol University Main, Student Union Center Bldg.
+                </span>
               </h2>
             </div>
           </div>
@@ -84,7 +86,7 @@ function Footer() {
               <h1 className="text-CustomOrange text-xl font-bold mb-2">
                 Newsletter
               </h1>
-              <p className="w-80">
+              <p className="w-80 text-black">
                 Become a part of the revolution by being up-to-date with our
                 latest offering by startups and startup enablers!
               </p>
