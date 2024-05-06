@@ -1,7 +1,7 @@
 import React from "react";
 import MemberContent from "../../components/MemberContent/MemberContent";
 
-function DiscoverPage() {
+function DiscoverPage({data}) {
   return (
     <>
       {/* content page container */}
@@ -12,7 +12,7 @@ function DiscoverPage() {
         </div>
         {/* content container */}
         <div className="flex">
-          <MemberContent />
+          <MemberContent data={data}/>
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import GuidesContent from "./Contents/GuideContent.jsx";
 import EventsContent from "./Contents/EventsContent.jsx";
 import CommunityPage from "./Contents/CommunityPage.jsx";
 
-function MemberContent() {
+function MemberContent({data}) {
   return (
     <>
       {/* content container */}
@@ -22,7 +22,7 @@ function MemberContent() {
           </div>
           {/* blog card container */}
           <div className="flex flex-row m-10 ">
-            <BlogsContent />
+            <BlogsContent data={data?.blogs}/>
           </div>
         </div>
         {/* event container */}
@@ -39,7 +39,7 @@ function MemberContent() {
 
           {/* event card container */}
           <div className="flex flex-row m-10">
-            <EventsContent />
+            <EventsContent data={data?.events}/>
           </div>
         </div>
         {/* Guides */}
@@ -55,11 +55,11 @@ function MemberContent() {
           </div>
           {/* guide card container */}
           <div className="flex flex-row m-10 ">
-            <GuidesContent />
+            <GuidesContent data={data?.guides}/>
           </div>
         </div>
         <div className="flex">
-          <CommunityPage />
+          <CommunityPage data={data?.metrics}/>
         </div>
       </div>
     </>

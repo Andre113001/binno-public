@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardFormat = ({ imageUrl, size }) => {
+const CardFormat = ({ imageUrl, blob, size }) => {
   let cardSizeClass = '';
   switch (size) {
     case 'big':

@@ -49,7 +49,7 @@ function Accordion() {
   const fetchFAQs = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_DOMAIN}/faq/fetch`
+        `${import.meta.env.VITE_BACKEND_DOMAIN}/public/faq`
       );
       setQuestions(response.data);
       setFilteredQuestions(response.data);

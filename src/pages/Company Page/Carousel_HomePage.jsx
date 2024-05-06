@@ -5,8 +5,11 @@ import CompanyPage from "./CompanyPage";
 import MembersPage from "../MembersPage/MembersPage";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import logo from "../../assets/BiNNO_white.svg";
+import { useNavigate } from "react-router";
 
-export function CarouselCustomNavigation() {
+export function CarouselCustomNavigation({data}) {
+  const navigate = useNavigate();
+
   return (
     <Carousel
       className="relative w-full p-0 h-auto overflow-y-scroll "
@@ -51,17 +54,17 @@ export function CarouselCustomNavigation() {
     className="w-6 h-6 opacity-100 block cursor-pointer transition-all translate-y-1 mr-1 ml-4"
   /> */}
 
-            <span className="opacity-50 block cursor-pointer transition-all text-white ml-2">
+            <span onClick={() => window.location.href ='https://member.binnostartup.site'} className="opacity-50 block cursor-pointer transition-all text-white ml-2">
               Sign-in
             </span>
           </div>
         </div>
       )}
     >
-      <MembersPage />
+      <MembersPage data={data.companies}/>
 
-      <EnablerPage />
-      <MentorPage />
+      <EnablerPage data={data.enablers}/>
+      <MentorPage data={data.mentors}/>
     </Carousel>
   );
 }

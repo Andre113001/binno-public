@@ -1,57 +1,89 @@
-import react from "react";
+import { useState, useEffect } from "react";
 import CardContainer from "./Carousel_Circle";
+import { fetchImage } from "../../hooks/image-hook";
 
-function EnablerPage () {
-    const imageUrls = [
-        './src/assets/logos/roompal.jpg',
-        './src/assets/logos/cushy.jpg',
-        './src/assets/logos/devcon.jpg',
-        './src/assets/logos/nostalgicthreads.jpg',
-        './src/assets/logos/andale.jpg',
-      ];
+function EnablerPage ({data}) {
+  const [profilePics, setProfilePics] = useState({});
+  const [banners, setBanners] = useState({});
+  const [currentEnabler, setCurrentEnabler] = useState();
 
-      return (
-        <div className="bg-companyBG relative flex justify-center overflow-hidden">
-          
-          <div className="max-h-[1000px] max-w-[2050px] flex justify-center relative">
-  <div class="overflow-visible translate-y-[-300px]">
-    <img src="./src/assets/logos/C_cushy.jpg" alt="C_cushy logo" class="w-full" />
-   
-  </div>
+  useEffect(() => {
+    const fetchProfilePics = async () => {
+      const pics = {};
+      for (const profilePic of data) {
+        const picBlob = await fetchProfilePic(profilePic.setting_profilepic);
+        const picUrl = URL.createObjectURL(picBlob);
+        pics[profilePic.setting_id] = picUrl;
+      }
+      setProfilePics(pics);
+    };
 
-  <div className="absolute h-full w-full bg-companyBG opacity-75"></div>
- 
-  <div className="absolute top-0 left-0 ml-5">
-    <h1 className="text-white text-9xl font-bold mt-20 p-12">CushyRental</h1>
-    <p className="w-9/12 ml-16 text-xl">CushyRental is a startup enabler for students of Bicol University. Lorem ipsum dolor sit amet.
-       Et dicta suscipit sed debitis minima et autem dolorem et voluptatem nemo et facere quaerat! Non 
-       voluptatem magni et voluptas galisum qui eveniet quis qui maiores cumque. Est necessitatibus consequatur 
-       et consequuntur quae qui omnis earum eum inventore enim sed debitis omnis hic illum mollitia id aliquid atque. 
-       Ab maiores totam et molestiae amet 33 earum quia et necessitatibus necessitatibus. Et dicta excepturi hic illum cumque sit 
-       doloribus voluptas qui natus eligendi hic.</p>
-</div>
+    const fetchCoverPics = async () => {
+      const pics = {};
+      for (const coverPic of data) {
+        const picBlob = await fetchBanner(coverPic.setting_coverpic);
+        const picUrl = URL.createObjectURL(picBlob);
+        pics[coverPic.setting_id] = picUrl;
+      }
+      setBanners(pics)
+    }
 
+    fetchProfilePics();
+    fetchCoverPics();
+  }, [data]);
 
+  // useEffect(() => {
+  //   console.log("Current Enabler:", currentEnabler); // Log the current enabler whenever it changes
+  // }, [currentEnabler]);
+  
+  const fetchProfilePic = async (profile_pic_name) => {
+    const profilePic = await fetchImage(`profile-img/${profile_pic_name}`);
+    return profilePic;
+  };
 
+  const fetchBanner = async (banner_pic_name) => {
+    const bannerPic = await fetchImage(`profile-cover-img/${banner_pic_name}`);
+    return bannerPic;
+  }
 
-          {/* CardContainer */}
+  const imageUrls = [
+      './src/assets/logos/roompal.jpg',
+      './src/assets/logos/cushy.jpg',
+      './src/assets/logos/devcon.jpg',
+      './src/assets/logos/nostalgicthreads.jpg',
+      './src/assets/logos/andale.jpg',
+    ];
+
+  return (
+    <div className="bg-companyBG relative flex justify-center overflow-hidden">
         
-      
-          {/* Container for SVG */}
-    
-          
-          <svg class="absolute  h-[930px] w-[2050px]   bottom-[-100px]" viewBox="0 0 1440 550" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect  y="343" width="100%" height="40%" fill="white"/>
-    <path d="M1015.5 202.5L1440 0V346H701L1015.5 202.9Z" fill="white"/>
-</svg>
+      <div className="max-h-[1000px] max-w-[2050px] flex justify-center relative">
+      <div class="overflow-visible translate-y-[-300px]">
+      <img src={banners[currentEnabler?.setting_id]} className="w-full h-screen object-cover" />
+   
+    </div>
 
+    <div className="absolute h-full w-full bg-companyBG opacity-75"></div>
+  
+    <div className="absolute top-0 left-0 ml-5">
+      <h1 className="text-white text-9xl font-bold mt-20 p-12">{currentEnabler?.setting_institution}</h1>
+      <p className="w-9/12 ml-16 text-xl">{currentEnabler?.setting_bio} Lorem ipsum dolor sit amet.
+        Et dicta suscipit sed debitis minima et autem dolorem et voluptatem nemo et facere quaerat! Non 
+        voluptatem magni et voluptas galisum qui eveniet quis qui maiores cumque. Est necessitatibus consequatur 
+        et consequuntur quae qui omnis earum eum inventore enim sed debitis omnis hic illum mollitia id aliquid atque. 
+        Ab maiores totam et molestiae amet 33 earum quia et necessitatibus necessitatibus. Et dicta excepturi hic illum cumque sit 
+        doloribus voluptas qui natus eligendi hic.</p>
+    </div>
+    <svg class="absolute  h-[930px] w-[2050px]   bottom-[-100px]" viewBox="0 0 1440 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect  y="343" width="100%" height="40%" fill="white"/>
+      <path d="M1015.5 202.5L1440 0V346H701L1015.5 202.9Z" fill="white"/>
+    </svg>
 
-      
-<div className="absolute bottom-24 left-0 ml-5 ">
-  <div className="App mb-5">
-    <CardContainer imageUrls={imageUrls} />
-  </div>
-</div>
+    <div className="absolute bottom-24 left-0 ml-5 ">
+      <div className="App mb-5">
+        <CardContainer imageUrls={profilePics} data={data} onChangeEnabler={setCurrentEnabler}/>
+      </div>
+    </div>
 
 <div className="absolute bottom-20 right-24">
 <svg width="430" height="383" viewBox="0 0 430 383" fill="none" xmlns="http://www.w3.org/2000/svg">

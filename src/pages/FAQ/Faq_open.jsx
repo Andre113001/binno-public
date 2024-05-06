@@ -36,31 +36,7 @@ function AccordionItem({ title, content }) {
   );
 }
 
-function Accordion() {
-  const [questions, setQuestions] = useState([]);
-  const [filteredQuestions, setFilteredQuestions] = useState([]);
-
-  useEffect(() => {
-    fetchFAQs();
-  }, []);
-
-  const fetchFAQs = async () => {
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_DOMAIN}/faq/fetch`);
-      setQuestions(response.data);
-      setFilteredQuestions(response.data);
-    } catch (error) {
-      console.error('Error fetching FAQ data:', error);
-    }
-  };
-
-  // const filterQuestions = (searchText) => {
-  //   const filtered = questions.filter(question =>
-  //     question.question.toLowerCase().includes(searchText.toLowerCase())
-  //   );
-  //   setFilteredQuestions(filtered);
-  // };
-
+function Accordion({data}) {
   return (
     <main className="p-5 bg-light-blue">
       <form>
@@ -84,10 +60,9 @@ function Accordion() {
       <div className="flex justify-center items-center">
        <div class="w-full">
           <ul className="flex flex-col">
-          {filteredQuestions.slice(0, 3).map((faq, index) => (
+          {data?.slice(0 , 3).map((faq) => (
               <AccordionItem 
                 key={faq.faq_id}
-                
                 title={faq.faq_title}
                 content={faq.faq_content}
               />

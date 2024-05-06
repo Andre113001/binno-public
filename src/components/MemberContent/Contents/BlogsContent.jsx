@@ -1,41 +1,60 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { blogs } from "../ContentData.jsx";
 import Avatar from "@mui/material/Avatar";
+import useLoadData from "../../../hooks/useLoadData.js";
+import moment from "moment/moment.js";
+import { fetchImage } from '../../../hooks/image-hook.js';
 
-function BlogsContent() {
+function BlogsContent({data}) {
+  const [profilePics, setProfilePics] = useState({});
 
+  useEffect(() => {
+    const fetchProfilePics = async () => {
+      const pics = {};
+      for (const blog of data) {
+        const picBlob = await fetchProfilePic(blog.setting_profilepic);
+        const picUrl = URL.createObjectURL(picBlob);
+        pics[blog.blog_id] = picUrl;
+      }
+      setProfilePics(pics);
+    };
 
+    fetchProfilePics();
+  }, [data]);
 
+  const fetchProfilePic = async (profile_pic_name) => {
+    const profilePic = await fetchImage(`profile-img/${profile_pic_name}`);
+    return profilePic;
+  }
 
-
-  
   return (
     <>
       <div className="flex">
-        {blogs.map((blog) => (
+        {data?.map((blog) => (
           // cards
-          <a href="">
             <div
               className="bg-white rounded-lg flex flex-col mx-5 p-5 max-w-30"
-              key={blog.id}
+              key={blog.blog_id}
             >
               {/* title description container */}
               <div className="flex flex-col">
                 <h2 className="text-black font-bold text-xl mb-1">
-                  {blog.blogTitle}
+                  {blog.blog_title}
                 </h2>
                 <p className="text-black text-opacity-80 mb-1 text-base">
-                  {blog.blogDescription}
+                  {blog.blog_content.length > 250 ? blog.blog_content.substring(0, 250) + '...' : blog.blog_content}
                 </p>
               </div>
-              <p className="text-black text-opacity-60">{blog.date}</p>
+              <p className="text-black text-opacity-60">{moment(blog.blog_dateadded).format('MMMM DD, YYYY | hh:mm A')}</p>
               {/* footer container */}
               <div className="flex items-center flex-row m-1 mt-3">
-                <Avatar src={blog.profilePic} alt="profile picture" />
-                <h2 className="text-black mx-2 font-bold">{blog.username}</h2>
+                <Avatar
+                  src={profilePics[blog.blog_id]}
+                  alt={blog.setting_institution}
+                />
+                <h2 className="text-black mx-2 font-bold">{blog.setting_institution}</h2>
               </div>
             </div>
-          </a>
         ))}
       </div>
     </>

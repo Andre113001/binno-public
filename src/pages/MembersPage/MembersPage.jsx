@@ -4,7 +4,7 @@ import CarouselCompany from "../../components/CompaniesCarousel/CarouselCompany.
 import CarouselFilter from "../../pages/Company Page/Carousel_Swiper_Company.jsx";
 import { Button } from "@material-tailwind/react";
 
-function MembersPage() {
+function MembersPage({data}) {
   return (
     <>
       {/* member page container */}
@@ -15,7 +15,7 @@ function MembersPage() {
             <h1 className="text-white font-bold text-8xl w-1/2">
               Startup Companies
             </h1>
-            <div className=" mt-4"><CarouselFilter/></div>
+            <div className=" mt-4"><CarouselFilter data={data} /></div>
             <div className="flex justify-center mt-10 mb-32">
               <Button
                 size="lg"

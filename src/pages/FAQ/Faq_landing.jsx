@@ -5,33 +5,7 @@ import { Link } from "react-router-dom";
 import Accordion from "./Faq_open.jsx";
 import { CarouselCustomNavigation } from "../Company Page/Carousel_HomePage.jsx";
 
-export default function FAQ() {
-  useEffect(() => {
-    fetchFAQs();
-  }, []);
-  const fetchFAQs = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/faqs");
-      setQuestions(response.data);
-      setFilteredQuestions(response.data);
-    } catch (error) {
-      console.error("Error fetching FAQ data:", error);
-    }
-  };
-
-  // useEffect(() => {
-  //   fetchFAQs();
-  // }, []);
-  // const fetchFAQs = async () => {
-  //   try {
-  //     const response = await axios.get('http://localhost:5000/faqs');
-  //     setQuestions(response.data);
-  //     setFilteredQuestions(response.data);
-  //   } catch (error) {
-  //     console.error('Error fetching FAQ data:', error);
-  //   }
-  // };
-
+export default function FAQ({data}) {
   return (
     // parent container
     <div className="w-full bg-white pt-20 flex flex-row overflow-hidden">
@@ -50,11 +24,11 @@ export default function FAQ() {
           <div className="flex flex-col items-end  w-9/12 max-w-9/12">
             {/* <a href="" className="decoration-0 text-CustomOrange">See more</a> */}
 
-            <Link to="./FAQ" className="decoration-0 text-CustomOrange">
+            <Link to={'/FAQ'} className="decoration-0 text-CustomOrange">
               See more
             </Link>
 
-            <Accordion></Accordion>
+            <Accordion data={data} />
           </div>
         </div>
       </div>
