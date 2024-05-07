@@ -5,9 +5,8 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import CarouselTeamData from "./Team_Data";
 
-
 function isDone(index, activeIndex, length) {
-  const doneIndex = (activeIndex ) % length;
+  const doneIndex = activeIndex % length;
   return index === doneIndex || index + length === doneIndex;
 }
 
@@ -39,7 +38,6 @@ function CarouselTeam() {
       grabCursor={false}
       centeredSlides={true}
       spaceBetween={-800}
-     
       navigation={true}
       onSlideChange={handleSlideChange}
       breakpoints={{
@@ -69,23 +67,39 @@ function CarouselTeam() {
     >
       {CarouselTeamData.map((team, index) => (
         <SwiperSlide key={index}>
-          <div className={`flex items-center justify-center h-full w-full `}>
-
+          <div className={`flex items-center justify-center h-full w-full`}>
             <div className="m-5">
               <div className="flex items-center justify-center w-full">
                 {/* card container (parent container)*/}
                 <div className="flex flex-col justify-center items-center max-h-full max-w-full">
                   <img
-                   className={`flex h-full max-h-full w-full object-cover object-center rounded 
-                   ${isDone(index, activeIndex, CarouselTeamData.length) ? 'done' : ''}
-                   ${isFit(index, activeIndex, CarouselTeamData.length) ? 'fit' : ''}
-                   ${index !== (activeIndex) % CarouselTeamData.length ? 'non-active' : ''}`
-                 }
+                    className={`flex h-full max-h-full w-full object-cover object-center rounded 
+                   ${
+                     isDone(index, activeIndex, CarouselTeamData.length)
+                       ? "done"
+                       : ""
+                   }
+                   ${
+                     isFit(index, activeIndex, CarouselTeamData.length)
+                       ? "fit"
+                       : ""
+                   }
+                   ${
+                     index !== activeIndex % CarouselTeamData.length
+                       ? "non-active"
+                       : ""
+                   }`}
                     src={team.profileCover}
                     alt="Profile Cover"
                   />
                   {/* content container */}
-                  <div className={`flex justify-center items-center flex-col ml-2 overflow-visible bg-companyBG p-2 px-4 opacity-80 rounded-xl ${index !== (activeIndex) % CarouselTeamData.length ? 'hidden' : ''}`}>
+                  <div
+                    className={`flex justify-center items-center flex-col ml-2 overflow-visible bg-companyBG p-2 px-4 opacity-80 rounded-xl ${
+                      index !== activeIndex % CarouselTeamData.length
+                        ? "hidden"
+                        : ""
+                    }`}
+                  >
                     <div className="flex  font-bold text-sm text-orange-800">
                       {team.name}
                     </div>

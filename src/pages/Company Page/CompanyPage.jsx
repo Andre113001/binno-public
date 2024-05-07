@@ -45,17 +45,23 @@ function CompanyPage() {
             {/* description page */}
             <div className="bg-discoverWhite m-10 h-auto">
               <div className="flex flex-col items-center justify-center p-5 mt-40">
-                <p className="text-black text-4xl text-justify tracking-wide leading-relaxed">{val.companyDescription}</p>
+                <p className="text-black text-3xl text-justify tracking-wide leading-relaxed my-14  ">
+                  {val.companyDescription}
+                </p>
                 {/* mission vision container */}
                 <div className="flex flex-col justify-center items-center">
-                  <h1 className="text-CustomOrange font-bold text-5xl m-10">
+                  <h1 className="text-CustomOrange font-bold text-6xl m-10">
                     Mission
                   </h1>
-                  <p className="text-black text-4xl text-justify tracking-wide leading-relaxed">{val.mission}</p>
-                  <h1 className="text-CustomOrange font-bold text-5xl m-10 ">
+                  <p className="text-black text-3xl text-justify tracking-wide leading-relaxed mb-20">
+                    {val.mission}
+                  </p>
+                  <h1 className="text-CustomOrange font-bold text-6xl m-10 ">
                     Vision
                   </h1>
-                  <p className="text-black text-4xl text-justify tracking-wide leading-relaxed">{val.vision}</p>
+                  <p className="text-black text-3xl text-justify tracking-wide leading-relaxed">
+                    {val.vision}
+                  </p>
                 </div>
               </div>
             </div>
