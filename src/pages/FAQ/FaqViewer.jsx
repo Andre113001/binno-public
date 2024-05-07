@@ -4,10 +4,9 @@ import axios from "axios";
 // import "./App.css";
 import Accordion from "./Faq_openpage.jsx";
 import { SubscriptionPopover } from "./Faq_Popover";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 export default function FAQmore() {
-  
-
   // useEffect(() => {
   //   fetchFAQs();
   // }, []);
@@ -36,6 +35,11 @@ export default function FAQmore() {
 
   return (
     <div className="w-full h-full bg-white pt-20 overflow-x-hidden">
+      {/* back button */}
+      <a className="items-center justify-center text-black ml-5" href="/">
+        <ArrowBackRoundedIcon />
+        <span className="ml-1">Back</span>
+      </a>
       <div className="w-full flex flex-col justify-center items-center">
         <h2 className="text-CustomOrange font-bold text-2xl">
           Frequently Asked Questions

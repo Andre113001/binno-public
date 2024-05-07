@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 // import { SubscriptionPopover } from './Faq_Popover';
 
 function AccordionItem({ title, content }) {
@@ -18,7 +18,7 @@ function AccordionItem({ title, content }) {
         <span>{title}</span>
         <svg
           className={`fill-current text-orange-700 h-6 w-6 transform transition-transform duration-500 ${
-            isOpen ? 'rotate-180' : ''
+            isOpen ? "rotate-180" : ""
           }`}
           viewBox="0 0 20 20"
         >
@@ -27,7 +27,9 @@ function AccordionItem({ title, content }) {
       </h3>
       <div
         className={`border-l-2 rounded-bl-lg border-orange-600 overflow-hidden transition-all ${
-          isOpen ? `max-h-96 duration-500 ease-in` : `max-h-0 duration-500 ease-out`
+          isOpen
+            ? `max-h-96 duration-500 ease-in`
+            : `max-h-0 duration-500 ease-out`
         }`}
       >
         <p className="p-3 text-gray-900 flex">{content}</p>
@@ -36,11 +38,11 @@ function AccordionItem({ title, content }) {
   );
 }
 
-function Accordion({data}) {
+function Accordion({ data }) {
   return (
     <main className="p-5 bg-light-blue">
       <form>
-        <div className='max-w-md mx-auto '>
+        <div className="max-w-md mx-auto ">
           {/* <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg overflow-hidden h-9">
             <div className="grid place-items-center h-full w-12 text-gray-300 bg-white">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,10 +60,10 @@ function Accordion({data}) {
         </div>
       </form>
       <div className="flex justify-center items-center">
-       <div class="w-full">
+        <div class="w-[500px] max-w-[520px]">
           <ul className="flex flex-col">
-          {data?.slice(0 , 3).map((faq) => (
-              <AccordionItem 
+            {data?.slice(0, 3).map((faq) => (
+              <AccordionItem
                 key={faq.faq_id}
                 title={faq.faq_title}
                 content={faq.faq_content}
@@ -70,8 +72,8 @@ function Accordion({data}) {
           </ul>
         </div>
       </div>
-      
-  {/* <SubscriptionPopover></SubscriptionPopover> */}
+
+      {/* <SubscriptionPopover></SubscriptionPopover> */}
     </main>
   );
 }

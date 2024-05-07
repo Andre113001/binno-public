@@ -70,7 +70,8 @@ function EnablerPage({ data }) {
           <h1 className="text-white text-9xl font-bold mt-20 p-12">
             {currentEnabler?.setting_institution}
           </h1>
-          <p className="w-4/6 ml-16  text-xl">
+          {/* connect to db */}
+          <p className="w-4/ ml-16  text-xl">
             {currentEnabler?.setting_bio} Lorem ipsum dolor sit amet. Et dicta
             suscipit sed debitis minima et autem dolorem et voluptatem nemo et
             facere quaerat! Non voluptatem magni et voluptas galisum qui eveniet
