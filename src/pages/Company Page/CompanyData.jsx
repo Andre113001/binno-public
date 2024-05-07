@@ -8,9 +8,10 @@ const CompanyContent = [
     vision:
       "As the pioneering force in the Bicol startup ecosystem, BiNNO envisions a thriving community where every entrepreneur has the tools, knowledge, and support needed to transform innovative ideas into successful ventures. Our vision is to be the catalyst that propels the Bicol Region into a hub of creativity, economic prosperity, and sustainable development. Through the BiCoRSE consortium, we aim to build bridges, break barriers, and inspire a new generation of entrepreneurs who will shape the future of our region and contribute to the global startup landscape.",
     images: [
-      "https://www.wework.com/ideas/wp-content/uploads/sites/4/2017/06/Web_150DPI-20190927_10th_Floor_Conference_Room_2_v1-1120x630.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3m-bp-6lpiR9hMIK_v9T3nuM2zIEJTUIzOXfZCyXigA&s",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1s_LHTasUt8xfbctBtf6rx_i3rmBWeplMGIYbTRdxRQ&s",
+      "./src/assets/img/img1.jpg",
+      "./src/assets/img/img2.jpg",
+      "./src/assets/img/img3.jpg",
+      "./src/assets/img/img4.jpg",
     ],
   },
 ];
