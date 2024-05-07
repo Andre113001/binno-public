@@ -71,7 +71,7 @@ function EnablerPage({ data }) {
             {currentEnabler?.setting_institution}
           </h1>
           {/* connect to db */}
-          <p className="w-4/ ml-16  text-xl">
+          <p className="max-w-4/6 w-4/6 ml-16  text-xl">
             {currentEnabler?.setting_bio} Lorem ipsum dolor sit amet. Et dicta
             suscipit sed debitis minima et autem dolorem et voluptatem nemo et
             facere quaerat! Non voluptatem magni et voluptas galisum qui eveniet
