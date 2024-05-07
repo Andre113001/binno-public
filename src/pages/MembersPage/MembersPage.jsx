@@ -4,7 +4,7 @@ import CarouselCompany from "../../components/CompaniesCarousel/CarouselCompany.
 import CarouselFilter from "../../pages/Company Page/Carousel_Swiper_Company.jsx";
 import { Button } from "@material-tailwind/react";
 
-function MembersPage({data}) {
+function MembersPage({ data }) {
   return (
     <>
       {/* member page container */}
@@ -15,7 +15,9 @@ function MembersPage({data}) {
             <h1 className="text-white font-bold text-8xl w-1/2">
               Startup Companies
             </h1>
-            <div className=" mt-4"><CarouselFilter data={data} /></div>
+            <div className=" mt-4">
+              <CarouselFilter data={data} />
+            </div>
             <div className="flex justify-center mt-10 mb-32">
               <Button
                 size="lg"
@@ -35,12 +37,13 @@ function MembersPage({data}) {
             </div>
             <div className="flex justify-center translate-y-[-150px] translate-x-[100px]">
               <div className="card"></div>
-    
             </div>
-                    <div className="absolute translate-y-[-250px]">
-      <h1 className="text-orange-500 text-4xl font-semibold"> Fill your startup here</h1>
-      <p>Do not be afraid to start your own</p>
-    </div>
+            <div className="absolute translate-y-[-250px]">
+              <h1 className="text-orange-500 text-4xl font-semibold">
+                Fill your startup here
+              </h1>
+              <p>Do not be afraid to start your own</p>
+            </div>
             {/* Add more divs as needed */}
           </div>
         </div>
