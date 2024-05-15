@@ -236,15 +236,16 @@ width: 93%;
 
 .TeamSwiper .swiper-slide img {
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 280px;
+  height: 280px;
   object-fit: cover;
 }
 
 .TeamSwiper {
   position: absolute; 
   width: 100%;
-  margin-right: 300px;
+  /* margin-right: 300px; */
+  margin-left: 5%;
   
 }
 
@@ -265,10 +266,17 @@ width: 93%;
 }
 
 .done{
-  transform: translateY(-18px);
-  height: 280px !important;
+  transform: translateY(-20px);
+  height: 430px !important;
+  width: 380px !important;
+  margin-left: 100px;
   
   }
+
+  .donea{
+   margin-left: 500px;
+    
+    }
 
  .fit{
 opacity: 0;
