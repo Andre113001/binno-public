@@ -4,7 +4,7 @@ import GuidesContent from "./Contents/GuideContent.jsx";
 import EventsContent from "./Contents/EventsContent.jsx";
 import CommunityPage from "./Contents/CommunityPage.jsx";
 
-function MemberContent({data}) {
+function MemberContent({ data }) {
   return (
     <>
       {/* content container */}
@@ -15,14 +15,14 @@ function MemberContent({data}) {
           <div className="flex justify-end w-full">
             <a
               className=" mx-5 justify-end text-xl text-CustomOrange font-bold "
-              href="https://www.facebook.com"
+              href="http://binnostartup.site/blogs.php"
             >
               View All
             </a>
           </div>
           {/* blog card container */}
           <div className="flex flex-row m-10 ">
-            <BlogsContent data={data?.blogs}/>
+            <BlogsContent data={data?.blogs} />
           </div>
         </div>
         {/* event container */}
@@ -31,7 +31,7 @@ function MemberContent({data}) {
           <div className="flex justify-end w-full">
             <a
               className=" mx-5 justify-end text-xl text-CustomOrange font-bold "
-              href="https://www.facebook.com"
+              href="http://binnostartup.site/events.php"
             >
               View All
             </a>
@@ -39,7 +39,7 @@ function MemberContent({data}) {
 
           {/* event card container */}
           <div className="flex flex-row m-10">
-            <EventsContent data={data?.events}/>
+            <EventsContent data={data?.events} />
           </div>
         </div>
         {/* Guides */}
@@ -48,18 +48,18 @@ function MemberContent({data}) {
           <div className="flex justify-end w-full">
             <a
               className="mx-5 justify-end text-xl text-CustomOrange font-bold "
-              href="https://www.facebook.com"
+              href="http://binnostartup.site/guides.php"
             >
               View All
             </a>
           </div>
           {/* guide card container */}
           <div className="flex flex-row m-10 ">
-            <GuidesContent data={data?.guides}/>
+            <GuidesContent data={data?.guides} />
           </div>
         </div>
         <div className="flex">
-          <CommunityPage data={data?.metrics}/>
+          <CommunityPage data={data?.metrics} />
         </div>
       </div>
     </>
