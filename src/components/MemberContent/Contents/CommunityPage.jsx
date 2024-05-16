@@ -1,27 +1,27 @@
 import React from "react";
 
-function CommunityPage({data}) {
+function CommunityPage({ data }) {
   const members = [
     {
       id: 1,
       userType: "Startup Companies",
-      userCount: data?.companies
+      userCount: data?.companies,
     },
     {
       id: 2,
       userType: "Startup Enablers",
-      userCount: data?.enablers
+      userCount: data?.enablers,
     },
     {
       id: 3,
       userType: "Startup Mentors",
-      userCount: data?.mentors
+      userCount: 1,
     },
     {
       id: 4,
       userType: "Visitors",
-      userCount: 20
-    }
+      userCount: 20,
+    },
   ];
 
   return (
@@ -45,7 +45,9 @@ function CommunityPage({data}) {
                   <h1 className="text-customLBlue font-bold text-7xl mb-3">
                     {member.userCount}
                   </h1>
-                  <h3 className="text-black w-20 text-center mx-20 text-xl">{member.userType}</h3>
+                  <h3 className="text-black w-20 text-center mx-20 text-xl">
+                    {member.userType}
+                  </h3>
                 </div>
               </div>
             </div>

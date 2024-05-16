@@ -44,9 +44,12 @@ function EventsContent({ data }) {
                 <h2 className="text-black font-bold text-xl mb-3">
                   {event.event_title}
                 </h2>
-                <h2 className="text-black text-opacity-80 ">
-                  <LocationOnRoundedIcon />ㅤ{event.event_address}
-                </h2>
+                <div className="flex text-black items-center mb-1">
+                  <LocationOnRoundedIcon />
+                  <h2 className="text-black text-opacity-80 ml-4">
+                    {event.event_address}
+                  </h2>
+                </div>
                 <h2 className="text-black text-opacity-80 ">
                   <CalendarMonthRoundedIcon />ㅤ
                   {moment(event.event_date).format("MMMM DD, YYYY")}
