@@ -29,22 +29,24 @@ function MembersPage({ data }) {
           </div>
 
           <div className="flex flex-col w-2/6 justify-end items-center ">
-            <div className="flex justify-center">
-              <div className="card"></div>
-            </div>
-            <div className="flex justify-center translate-y-[-80px] translate-x-[-100px]">
-              <div className="card"></div>
-            </div>
-            <div className="flex justify-center translate-y-[-150px] translate-x-[100px]">
-              <div className="card"></div>
-            </div>
-            <div className="absolute translate-y-[-250px]">
-              <h1 className="text-orange-500 text-4xl font-semibold">
-                Fill your startup here
-              </h1>
-              <p>Do not be afraid to start your own</p>
-            </div>
-            {/* Add more divs as needed */}
+            <a href="https://member.binnostartup.site/">
+              <div className="flex justify-center">
+                <div className="card"></div>
+              </div>
+              <div className="flex justify-center translate-y-[-80px] translate-x-[-100px]">
+                <div className="card"></div>
+              </div>
+              <div className="flex justify-center translate-y-[-150px] translate-x-[100px]">
+                <div className="card"></div>
+              </div>
+              <div className="absolute translate-y-[-340px] translate-x-[-40px]">
+                <h1 className="text-orange-500 text-4xl font-semibold">
+                  Fill your startup here
+                </h1>
+                <p>Do not be afraid to start your own</p>
+              </div>
+              {/* Add more divs as needed */}
+            </a>
           </div>
         </div>
       </div>
