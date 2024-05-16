@@ -43,7 +43,7 @@ function Footer() {
           {/* members & discover container */}
           <div className="flex p-10 grow items-center justify-center">
             {/* members container */}
-            <div className="flex flex-col items-start mx-10">
+            <div className="flex flex-col items-start mx-4 w-full">
               <h1 className="text-CustomOrange text-xl font-bold">
                 Main Users
               </h1>
@@ -56,7 +56,7 @@ function Footer() {
               <a href="">Startup Mentors</a>
             </div>
             {/* discover container */}
-            <div className="flex flex-col items-start mx-10 ">
+            <div className="flex flex-col items-start mx-4 w-full ">
               <h1 className="text-CustomOrange text-xl font-bold">Discover</h1>
               <a className="mt-5" href="">
                 Blog Articles
@@ -67,7 +67,7 @@ function Footer() {
               <a href="">Guides</a>
             </div>
             {/* Legal container */}
-            <div className="flex flex-col items-start mx-10 ">
+            <div className="flex flex-col items-start mx-4 w-full ">
               <h1 className="text-CustomOrange text-xl font-bold">Legal</h1>
               <a className="mt-5" href="">
                 Terms and Condition

@@ -34,7 +34,7 @@ export default function FAQmore() {
   // };
 
   return (
-    <div className="w-full h-full bg-white pt-20 overflow-x-hidden">
+    <div className="w-full h-screen bg-white pt-20 overflow-x-hidden">
       {/* back button */}
       <a className="items-center justify-center text-black ml-5" href="/">
         <ArrowBackRoundedIcon />
